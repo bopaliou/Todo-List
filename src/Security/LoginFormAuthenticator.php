@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 
 class LoginFormAuthenticator implements AuthenticatorInterface
 {
-    public function supports(Request $request):
+    public function supports(Request $request): ?bool
     {
         
     }
