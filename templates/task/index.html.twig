@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des taches{% endblock %}
+
+{% block body %}
+<a class="btn btn-success" style="margin-top:15px;margin-left:20px;" href="{{ path('task_create') }}" role="button">
+ Ajouter une tacher
+ </a>
+<h2>La liste des taches</h2>
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th><strong>ID</strong></th>
+            <th><strong>TITLE</strong></th>
+            <th><strong>Description</strong></th>
+            <th><strong>MOTIVATION</strong></th>
+            <th colspan="2">
+            <strong>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;ACTIONS
+            </strong>
+            </th>
+            {# <td><strong>DATE</strong></td> #}
+        </tr>
+            
+        </thead>
+{% for task in tasks %}
+        <tr>
+            <td><strong> {{ task.id }} </strong></td>
+            <td> {{ task.title }} </td>
+            <td> {{ task.description }} </td>
+            <td> {{ task.motivation }} </td>
+            <td> 
+                <a class="btn btn-danger" href="{{ path('task_delete',{id:task.id}) }}" role="button">Supprimer</a>
+            </td> 
+            <td> 
+                <a class="btn btn-info" href="{{ path('task_edit',{id:task.id}) }}" role="button">Modifier</a>
+            </td> 
+            {# <td> {{ task.date_task}} </td> #}
+        </tr>
+{% endfor %}
+    </table>
+</div>
+{% endblock %}

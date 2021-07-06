@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une nouvelle tache{% endblock %}
+
+{% block body %}
+<h2 class="text-primary">Créer une nouvelle tache</h2>
+<div class="form-group container-fluid">
+    {{ form_start(form) }}
+        {{form_widget(form) }}
+    <input type="submit" value="Enregistrer" class="btn btn-primary">
+{{ form_end(form) }}
+</div>
+
+
+{% endblock %}
